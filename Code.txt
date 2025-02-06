@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oil Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('data:image/jpeg;base64,YOUR_IMAGE_DATA') no-repeat center center/cover;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .product {
+            display: inline-block;
+            width: 30%;
+            background-color: white;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            cursor: pointer; /* Makes it clear that it's clickable */
+            text-decoration: none;
+            color: black;
+        }
+        .product:hover {
+            background-color: #f1f1f1; /* Adds hover effect */
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Shri Bairava Oil Shop</h1>
+        <p>Pure & Organic Oils for Your Needs</p>
+    </header>
+    
+    <div class="container">
+        <h2>Our Products</h2>
+        <div id="products"></div>
+    </div>
+    
+    <footer>
+        <p>Contact us: 123-456-7890 | email@example.com</p>
+    </footer>
+    
+    <script>
+        const products = [
+            { name: "Coconut Oil", price: "Rs.340/l", description: "100% Pure and Cold-Pressed", link: "https://yourcompany.com/coconut-oil" },
+            { name: "Olive Oil", price: "Rs.320/l", description: "Extra Virgin, High Quality", link: "https://yourcompany.com/olive-oil" },
+            { name: "Mustard Oil", price: "Rs.280/l", description: "Best for Cooking and Massage", link: "https://yourcompany.com/mustard-oil" },
+            { name: "Groundnut Oil", price: "Rs.280/l", description: "Best for deep fry cooking", link: "https://yourcompany.com/groundnut-oil" },
+            { name: "Sesame Oil / Gingelly Oil", price: "Rs.260/l", description: "Good for heart health", link: "https://yourcompany.com/sesame-oil" }
+        ];
+
+        const productsContainer = document.getElementById("products");
+
+        products.forEach(product => {
+            const productLink = document.createElement("a");
+            productLink.href = product.link;
+            productLink.target = "_blank"; // Opens in a new tab
+            productLink.classList.add("product");
+
+            productLink.innerHTML = `<h3>${product.name}</h3><p><strong>Price:</strong> ${product.price}</p><p>${product.description}</p>`;
+
+            productsContainer.appendChild(productLink);
+        });
+    </script>
+</body>
+</html>
